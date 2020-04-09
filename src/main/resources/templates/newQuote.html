@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Wisely : New Quote</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+<div class="wrap">
+<h2>New Quote</h2>
+
+<!--th:value="${quotesList.titleQuotes}"th:value="${quotesLquotesTextotes}"-->
+
+    <form th:action="@{/saveQuote}" method="post">
+        <label>Title of quote</label>
+        <input  type="text"    class="form-control" th:value="${quote.titleQuotes}" name="titleQuotes" placeholder="Please enter a title here ..." required maxlength="70"/>
+        <span class="text-danger" th:errors="${quote.titleQuotes}"></span>
+        <label>You're Quote</label>
+        <input  type="text"    class="form-control" name="quotesText" th:value="${quote.quotesText}" placeholder="Please enter a quote here ..." required maxlength="1000"/>
+        <span class="text-danger" th:errors="${quote.quotesText}"></span>
+        <input type="submit" value="New Quote">
+    </form>
+
+</div>
+    <table class="table table-light">
+        <tr>
+            <td><div class="text-danger">Le titre ne doit pas depassé 70 lettre</div></td>
+            <td><div class="text-danger">La description ne doit pas depassé 1000 lettre</div></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

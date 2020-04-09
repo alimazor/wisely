@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Wisely : New Quote</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="wrap">
+        <h2>New Quote</h2>
+
+        <!--th:value="${quotesList.titleQuotes}"th:value="${quotesLquotesTextotes}"-->
+
+        <form th:action="@{saveQuote}" method="post">
+            <!--<label>Code of quotes</label>-->
+            <input type="hidden" class="form-control" th:value="${quotes.codeQuotes}" name="codeQuotes"
+                   />
+            <label>Title of quote</label>
+            <input type="text" class="form-control" th:value="${quotes.titleQuotes}" name="titleQuotes" required
+                   maxlength="70"/>
+            <span class="text-danger" th:errors="${quotes.titleQuotes}"></span>
+            <label>You're Quote</label>
+            <input type="text" class="form-control" name="quotesText" th:value="${quotes.quotesText}" required
+                   maxlength="1000"/>
+            <span class="text-danger" th:errors="${quotes.quotesText}"></span>
+            <input type="submit" value="Update Quote">
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

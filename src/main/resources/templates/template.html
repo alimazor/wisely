@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
+          type="text/css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8"/>
+    <title>wisely</title>
+    <!-- <style th:inline="text">
+         body {
+             background: url([[@{/images/background.jpg}]]);
+             no-repeat: center center fixed;
+         }
+     </style>-->
+</head>
+<body>
+<!-- Header -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#BA68C8">
+        <ul class="navbar-nav mr-auto" style="color: #F3E5F5">
+            <a class="navbar-brand" th:href="@{/home}">
+                <img th:src="@{/images/logo.png}" width="30" height="30" class="d-inline-block align-top" alt="">
+                Wisely
+            </a>
+            <li class="nav-item">
+                <a class="nav-link text-navbar" th:href="@{/contactUs}"><i class="fas fa-envelope"></i>&nbsp;Contact US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-navbar" th:href="@{/newQuote}"><i class="fas fa-plus-circle"></i>&nbsp;New Quote</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-navbar" th:href="@{/allQuotes}"><i class="fas fa-archive"></i>&nbsp;Quotes Managment</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-navbar" href="#"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-navbar" href="https://www.instagram.com/teen_s_mood/" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+            </li>
+        </ul>
+
+
+    </nav>
+
+
+</header>
+<!--End Header-->
+
+<!--  Section  -->
+
+<section layout:fragment="content" class="container">
+
+</section>
+
+<!--End Section  -->
+
+
+<!--Footer-->
+
+
+<div class="footer">
+    <p><strong>© 2020 Copyright:<a href="/home"> wisely.com</a></strong></p>
+</div>
+
+
+<!--End-Footer-->
+</body>
+</html>

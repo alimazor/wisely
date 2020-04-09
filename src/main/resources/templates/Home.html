@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Wisely : Home</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+<div class="wrap">
+<h2>Quote Of The Day</h2>
+    <div th:each="q:${quotesList}">
+
+
+    <form th:action="@{/home}" method="get">
+        <label style="color: white;size: 15px" th:text="${q.titleQuotes}"></label>
+<!--
+        <input  type="text"  th:value="${q.quotesText}" disabled="disabled" class="form-control" style="color:black;height: 250px;text-align: center " />
+-->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Quotes</span>
+            </div>
+            <textarea style="text-align: center" class="form-control" th:text="${q.quotesText}" th:value="${q.quotesText}" disabled="disabled" aria-label="With textarea"/>
+        </div>
+        <input type="submit" value="Another Quote">
+    </form>
+    </div>
+</div>
+
+
+
+</div>
+</body>
+</html>

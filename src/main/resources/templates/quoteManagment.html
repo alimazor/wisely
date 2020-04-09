@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Wisely : Quote Managment</title>
+</head>
+<body>
+<div layout:fragment="content">
+<h1>Quote Managment</h1>
+<div class="card formManagmanet">
+    <div class="card-header">Quotes Managment</div>
+<div class="card-body">
+    <form class="form-inline" th:action="@{/allQuotes}" method="get">
+
+        <label id="motCle">Search :</label>&nbsp;&nbsp;
+        <input class="form-control" style="width: 500px" type="text" th:value="${quotesText}" name="quotesText"/>&nbsp;&nbsp;
+        <button class="btn btn-primary" type="submit">Search</button>
+
+
+    </form>
+
+<table class="table" style="margin-top: 10px">
+    <thead>
+    <th>Code Quote</th>
+    <th>Quote Title</th>
+    <th>Quote Text</th>
+    </thead>
+    <tbody>
+    <tr th:each="p:${listQuotes}">
+        <td th:text="${p.codeQuotes}"></td>
+        <td th:text="${p.titleQuotes}"></td>
+        <td th:text="${p.quotesText}"></td>
+        <td><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Delete Quotes</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                           Do you want delete this quotes ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a  class="btn btn-danger" th:href="@{/deleteQuotes(codeQuotes=${p.codeQuotes},page=${pageCourante},size=${size},quotesText=${quotesText})}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td><a class="btn btn-primary" th:href="@{editQuotes(codeQuotes=${p.codeQuotes})}">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+    <nav aria-label="...">
+        <ul class="pagination pagination-lg">
+            <li class="page-item" th:each="pa,status:${page}">
+                <a class="page-link"  th:href="@{/allQuotes(page=${status.index},quotesText=${quotesText})}" th:text="${status.index}">1</a>
+            </li>
+
+        </ul>
+    </nav>
+
+
+
+</div>
+</div>
+
+</div>
+
+</body>
+</html>
